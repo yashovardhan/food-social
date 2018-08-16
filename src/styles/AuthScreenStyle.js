@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 const styles = {
   Back: {
     height: '100%',
@@ -69,7 +71,7 @@ const styles = {
   AuthCard: {
     backgroundColor: '#FFFFFF',
     borderWidth: 0,
-    height: '75%',
+    height: 370,
     borderRadius: 5,
     shadowRadius: 0,
     shadowOpacity: 0,
@@ -119,6 +121,7 @@ const styles = {
   },
   EmailFormInput: {
     flex: 10,
+    marginTop: Platform.OS === 'android' ? 5 : 0,
     marginLeft: 15,
     height: 20,
     fontFamily: 'poppins-light',
@@ -140,6 +143,7 @@ const styles = {
   PasswordFormInput: {
     flex: 10,
     marginLeft: 15,
+    marginTop: Platform.OS === 'android' ? 5 : 0,
     height: 20,
     fontFamily: 'poppins-light',
     fontSize: 15,
@@ -154,7 +158,7 @@ const styles = {
     backgroundColor: '#FF5F35',
   },
   LoginButtonText: {
-    fontFamily: 'poppins-regular',
+    fontFamily: 'poppins-light',
     fontSize: 17,
     textAlign: 'center',
     color: '#FFFFFF',
@@ -163,10 +167,17 @@ const styles = {
     marginTop: 20,
   },
   ForgotPassText: {
-    fontFamily: 'poppins-light',
+    fontFamily: 'poppins-extralight',
     fontSize: 15,
     textAlign: 'center',
     color: '#000000',
+  },
+  ForgotPasswordCardText: {
+    marginTop: 30,
+    fontFamily: 'poppins-regular',
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#979797',
   },
 };
 
