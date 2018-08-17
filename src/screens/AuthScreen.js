@@ -117,7 +117,9 @@ class AuthScreen extends Component {
             underlineColorAndroid="rgba(0,0,0,0)"
           />
         </View>
-        <TouchableOpacity style={styles.Button}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => this.props.navigation.navigate('main')}>
           <Text style={styles.ButtonText}>LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -291,7 +293,9 @@ class AuthScreen extends Component {
             underlineColorAndroid="rgba(0,0,0,0)"
           />
         </View>
-        <TouchableOpacity style={styles.Button}>
+        <TouchableOpacity
+          style={styles.Button}
+          onPress={() => this.props.navigation.navigate('main')}>
           <Text style={styles.ButtonText}>SIGN UP</Text>
         </TouchableOpacity>
       </Card>
