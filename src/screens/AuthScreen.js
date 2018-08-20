@@ -11,21 +11,21 @@ import {
 } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { Card, Icon } from 'react-native-elements';
+import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
+import icoMoonConfig from '../../assets/selection.json';
 import styles from '../styles/AuthScreenStyle';
+
+const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
 class AuthScreen extends Component {
   state = {
     fontLoaded: false,
     backPattern: '',
     appIcon: '',
-    emailIcon: '',
     facebookIcon: '',
     googleIcon: '',
-    phoneIcon: '',
-    passwordIcon: '',
     successIcon: '',
-    userIcon: '',
     email: '',
     password: '',
     confirmpassword: '',
@@ -41,29 +41,22 @@ class AuthScreen extends Component {
       'poppins-light': require('../../assets/fonts/Poppins-Light.otf'),
       'poppins-regular': require('../../assets/fonts/Poppins-Regular.otf'),
       'poppins-medium': require('../../assets/fonts/Poppins-Medium.otf'),
+      icomoon: require('../../assets/fonts/icomoon.ttf'),
     });
 
     const backPattern = await require('../../assets/images/back-pattern.png');
     const appIcon = await require('../../assets/icons/app-icon.png');
-    const emailIcon = await require('../../assets/icons/email.png');
     const facebookIcon = await require('../../assets/icons/facebook.png');
     const googleIcon = await require('../../assets/icons/google.png');
-    const phoneIcon = await require('../../assets/icons/phone.png');
-    const passwordIcon = await require('../../assets/icons/password.png');
     const successIcon = await require('../../assets/icons/success.png');
-    const userIcon = await require('../../assets/icons/user.png');
 
     this.setState({
       fontLoaded: true,
       backPattern,
       appIcon,
-      emailIcon,
       facebookIcon,
       googleIcon,
-      phoneIcon,
-      passwordIcon,
       successIcon,
-      userIcon,
     });
   }
 
@@ -88,7 +81,7 @@ class AuthScreen extends Component {
           <Text style={styles.LoginDividerLine}>─────</Text>
         </View>
         <View style={styles.Form}>
-          <Image source={this.state.emailIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="email" size={15} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ email: text })}
@@ -103,7 +96,7 @@ class AuthScreen extends Component {
           />
         </View>
         <View style={styles.Form}>
-          <Image source={this.state.passwordIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="password" size={20} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ password: text })}
@@ -138,7 +131,7 @@ class AuthScreen extends Component {
           Enter your email address and we will send you a link to reset your password.
         </Text>
         <View style={[styles.Form, { marginTop: 50 }]}>
-          <Image source={this.state.emailIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="email" size={15} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ email: text })}
@@ -234,7 +227,7 @@ class AuthScreen extends Component {
     return (
       <Card containerStyle={styles.AuthCard}>
         <View style={styles.Form}>
-          <Image source={this.state.userIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="username" size={20} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ name: text })}
@@ -249,7 +242,7 @@ class AuthScreen extends Component {
           />
         </View>
         <View style={styles.Form}>
-          <Image source={this.state.phoneIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="phone" size={20} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ phone: text })}
@@ -264,7 +257,7 @@ class AuthScreen extends Component {
           />
         </View>
         <View style={styles.Form}>
-          <Image source={this.state.emailIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="email" size={15} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ email: text })}
@@ -279,7 +272,7 @@ class AuthScreen extends Component {
           />
         </View>
         <View style={styles.Form}>
-          <Image source={this.state.passwordIcon} resizeMode="center" style={styles.FormIcon} />
+          <Iconset name="password" size={20} />
           <TextInput
             style={styles.FormInput}
             onChangeText={text => this.setState({ password: text })}
