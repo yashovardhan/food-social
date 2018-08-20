@@ -92,6 +92,7 @@ class Router extends Component {
             },
           },
           {
+            tabBarComponent: TabBar,
             tabBarOptions: {
               activeTintColor: '#FF5F35',
               activeBackgroundColor: '#FFFFFF',
