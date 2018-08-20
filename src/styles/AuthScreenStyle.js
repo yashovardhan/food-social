@@ -1,6 +1,6 @@
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
-const styles = {
+const styles = StyleSheet.create({
   Back: {
     height: '100%',
     backgroundColor: '#F5F5F5',
@@ -186,6 +186,6 @@ const styles = {
     textAlign: 'center',
     color: '#000000',
   },
-};
+});
 
 export default styles;
