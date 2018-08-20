@@ -15,7 +15,9 @@ import PointScreen from './PointScreen';
 import FeedbackScreen from './FeedbackScreen';
 import ProfileScreen from './ProfileScreen';
 
-const Icon = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
+import TabBar from '../components/TabBar';
+
+const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
 class Router extends Component {
   state = {
@@ -39,53 +41,53 @@ class Router extends Component {
             home: {
               screen: HomeScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="feed" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => <Iconset name="feed" color={tintColor} size={24} />,
               }),
             },
             activity: {
               screen: ActivityScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="offer" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
               }),
             },
             search: {
               screen: SearchScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="store" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => <Iconset name="store" color={tintColor} size={24} />,
               }),
             },
             noti: {
               screen: NotificationScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => (
-                  <Icon name="notification" color={tintColor} size={24} />
-                ),
+                tabBarIcon: ({ tintColor }) => <Iconset name="noti" color={tintColor} size={24} />,
               }),
             },
             bills: {
               screen: BillScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="bill" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => <Iconset name="bill" color={tintColor} size={24} />,
               }),
             },
             points: {
               screen: PointScreen,
               navigationOptions: () => ({
                 tabBarIcon: ({ tintColor }) => (
-                  <Icon name="milestone" color={tintColor} size={24} />
+                  <Iconset name="milestone" color={tintColor} size={24} />
                 ),
               }),
             },
             feedback: {
               screen: FeedbackScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="review" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => (
+                  <Iconset name="review" color={tintColor} size={24} />
+                ),
               }),
             },
             profile: {
               screen: ProfileScreen,
               navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Icon name="user" color={tintColor} size={24} />,
+                tabBarIcon: ({ tintColor }) => <Iconset name="user" color={tintColor} size={24} />,
               }),
             },
           },
