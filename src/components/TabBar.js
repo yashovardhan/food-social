@@ -28,7 +28,7 @@ class TabBar extends Component {
     const { routes } = navigation.state;
 
     return (
-      <View style={[styles.tabbar, { height: this.state.menu_open ? 100 : 50 }]}>
+      <View style={[styles.tabbar, { height: this.state.menu_open ? 110 : 55 }]}>
         <LinearGradient
           start={[1, 1]}
           colors={['#CFCFCF', '#FFFFFF']}
