@@ -28,11 +28,11 @@ class TabBar extends Component {
     const { routes } = navigation.state;
 
     return (
-      <View style={[styles.tabbar, { height: this.state.menu_open ? 'auto' : 0 }]}>
+      <View style={[styles.tabbar, { height: this.state.menu_open ? 100 : 50 }]}>
         <LinearGradient
-          start={[0.97, 0.1]}
-          end={[1, 0.1]}
-          colors={['#FFFFFF', '#CFCFCF']}
+          start={[1, 1]}
+          colors={['#CFCFCF', '#FFFFFF']}
+          locations={[0, 0.05]}
           style={styles.tabs}>
           <View style={styles.section}>
             {routes &&
@@ -75,50 +75,52 @@ class TabBar extends Component {
                 }
               })}
           </View>
-          <View style={styles.section}>
-            {routes &&
-              routes.map((route, index) => {
-                const focused = index === navigation.state.index;
-                const tintColor = focused ? activeTintColor : inactiveTintColor;
+          {this.state.menu_open ? (
+            <View style={styles.section}>
+              {routes &&
+                routes.map((route, index) => {
+                  const focused = index === navigation.state.index;
+                  const tintColor = focused ? activeTintColor : inactiveTintColor;
 
-                if (index >= 3 && index !== this.state.selected_secondary_route) {
-                  return (
-                    <TouchableOpacity
-                      key={route.key}
-                      style={styles.tab}
-                      onPress={() => {
-                        jumpTo(route.key);
-                        this.setState({ selected_secondary_route: index });
-                      }}>
-                      <View style={styles.tab}>
-                        {renderIcon({
-                          route,
-                          index,
-                          focused,
-                          tintColor,
-                        })}
-                      </View>
-                    </TouchableOpacity>
-                  );
-                }
-              })}
-          </View>
+                  if (index >= 3 && index !== this.state.selected_secondary_route) {
+                    return (
+                      <TouchableOpacity
+                        key={route.key}
+                        style={styles.tab}
+                        onPress={() => {
+                          jumpTo(route.key);
+                          this.setState({ selected_secondary_route: index });
+                        }}>
+                        <View style={styles.tab}>
+                          {renderIcon({
+                            route,
+                            index,
+                            focused,
+                            tintColor,
+                          })}
+                        </View>
+                      </TouchableOpacity>
+                    );
+                  }
+                })}
+            </View>
+          ) : null}
         </LinearGradient>
         <View style={styles.navbutton}>
-          <View style={styles.section}>
-            {this.state.menu_open ? null : (
-              <TouchableOpacity onPress={() => this.setState({ menu_open: true })}>
-                <Iconset name="group" color="#B9B9B9" size={9} />
-              </TouchableOpacity>
-            )}
-          </View>
-          <View style={styles.section}>
-            {this.state.menu_open ? (
-              <TouchableOpacity onPress={() => this.setState({ menu_open: false })}>
-                <Iconset name="cross" color="#B9B9B9" size={20} />
-              </TouchableOpacity>
-            ) : null}
-          </View>
+          {this.state.menu_open ? null : (
+            <TouchableOpacity
+              onPress={() => this.setState({ menu_open: true })}
+              style={styles.section}>
+              <Iconset name="group" color="#B9B9B9" size={9} />
+            </TouchableOpacity>
+          )}
+          {this.state.menu_open ? (
+            <TouchableOpacity
+              onPress={() => this.setState({ menu_open: false })}
+              style={styles.section}>
+              <Iconset name="cross" color="#B9B9B9" size={20} />
+            </TouchableOpacity>
+          ) : null}
         </View>
       </View>
     );
@@ -127,7 +129,7 @@ class TabBar extends Component {
 
 const styles = StyleSheet.create({
   tabbar: {
-    height: 0,
+    height: 50,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -143,7 +145,7 @@ const styles = StyleSheet.create({
     flex: 4,
   },
   section: {
-    height: 50,
+    flex: 1,
     alignSelf: 'stretch',
     alignItems: 'center',
     justifyContent: 'center',
