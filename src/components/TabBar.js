@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 import { LinearGradient, Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -42,35 +42,39 @@ class TabBar extends Component {
 
                 if (index < 3) {
                   return (
-                    <TouchableOpacity
-                      key={route.key}
-                      style={styles.tab}
-                      onPress={() => jumpTo(route.key)}>
-                      <View style={styles.tab}>
-                        {renderIcon({
-                          route,
-                          index,
-                          focused,
-                          tintColor,
-                        })}
-                      </View>
-                    </TouchableOpacity>
+                    <View style={styles.tab} key={route.key}>
+                      <TouchableHighlight
+                        underlayColor="rgba(255,95,53,0.09)"
+                        onPress={() => jumpTo(route.key)}
+                        style={styles.touch}>
+                        <View style={styles.tab}>
+                          {renderIcon({
+                            route,
+                            index,
+                            focused,
+                            tintColor,
+                          })}
+                        </View>
+                      </TouchableHighlight>
+                    </View>
                   );
                 } else if (index === this.state.selected_secondary_route) {
                   return (
-                    <TouchableOpacity
-                      key={route.key}
-                      style={styles.tab}
-                      onPress={() => jumpTo(route.key)}>
-                      <View style={styles.tab}>
-                        {renderIcon({
-                          route,
-                          index,
-                          focused,
-                          tintColor,
-                        })}
-                      </View>
-                    </TouchableOpacity>
+                    <View style={styles.tab} key={route.key}>
+                      <TouchableHighlight
+                        underlayColor="rgba(255,95,53,0.09)"
+                        onPress={() => jumpTo(route.key)}
+                        style={styles.touch}>
+                        <View style={styles.tab}>
+                          {renderIcon({
+                            route,
+                            index,
+                            focused,
+                            tintColor,
+                          })}
+                        </View>
+                      </TouchableHighlight>
+                    </View>
                   );
                 }
               })}
@@ -84,22 +88,24 @@ class TabBar extends Component {
 
                   if (index >= 3 && index !== this.state.selected_secondary_route) {
                     return (
-                      <TouchableOpacity
-                        key={route.key}
-                        style={styles.tab}
-                        onPress={() => {
-                          jumpTo(route.key);
-                          this.setState({ selected_secondary_route: index });
-                        }}>
-                        <View style={styles.tab}>
-                          {renderIcon({
-                            route,
-                            index,
-                            focused,
-                            tintColor,
-                          })}
-                        </View>
-                      </TouchableOpacity>
+                      <View style={styles.tab} key={route.key}>
+                        <TouchableHighlight
+                          underlayColor="rgba(255,95,53,0.09)"
+                          onPress={() => {
+                            jumpTo(route.key);
+                            this.setState({ selected_secondary_route: index });
+                          }}
+                          style={styles.touch}>
+                          <View style={styles.tab}>
+                            {renderIcon({
+                              route,
+                              index,
+                              focused,
+                              tintColor,
+                            })}
+                          </View>
+                        </TouchableHighlight>
+                      </View>
                     );
                   }
                 })}
@@ -108,18 +114,24 @@ class TabBar extends Component {
         </LinearGradient>
         <View style={styles.navbutton}>
           {this.state.menu_open ? null : (
-            <TouchableOpacity
-              onPress={() => this.setState({ menu_open: true })}
-              style={styles.section}>
-              <Iconset name="group" color="#B9B9B9" size={9} />
-            </TouchableOpacity>
+            <View style={styles.section}>
+              <TouchableHighlight
+                underlayColor="rgba(255,95,53,0.09)"
+                onPress={() => this.setState({ menu_open: true })}
+                style={styles.touch}>
+                <Iconset name="group" color="#B9B9B9" size={9} />
+              </TouchableHighlight>
+            </View>
           )}
           {this.state.menu_open ? (
-            <TouchableOpacity
-              onPress={() => this.setState({ menu_open: false })}
-              style={styles.section}>
-              <Iconset name="cross" color="#B9B9B9" size={20} />
-            </TouchableOpacity>
+            <View style={styles.section}>
+              <TouchableHighlight
+                underlayColor="rgba(255,95,53,0.09)"
+                onPress={() => this.setState({ menu_open: false })}
+                style={styles.touch}>
+                <Iconset name="cross" color="#B9B9B9" size={20} />
+              </TouchableHighlight>
+            </View>
           ) : null}
         </View>
       </View>
@@ -135,6 +147,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
   },
+  touch: {
+    borderRadius: 100,
+    height: 45,
+    width: 45,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   tab: {
     alignSelf: 'stretch',
     flex: 1,
@@ -143,6 +163,9 @@ const styles = StyleSheet.create({
   },
   tabs: {
     flex: 4,
+    alignSelf: 'stretch',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   section: {
     flex: 1,
