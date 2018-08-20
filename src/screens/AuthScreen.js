@@ -83,7 +83,7 @@ class AuthScreen extends Component {
         <View style={styles.Form}>
           <Iconset name="email" size={15} />
           <TextInput
-            style={styles.FormInput}
+            style={[styles.FormInput, { marginLeft: 14 }]}
             onChangeText={text => this.setState({ email: text })}
             value={this.state.email}
             autoCapitalize="none"
@@ -133,7 +133,7 @@ class AuthScreen extends Component {
         <View style={[styles.Form, { marginTop: 50 }]}>
           <Iconset name="email" size={15} />
           <TextInput
-            style={styles.FormInput}
+            style={[styles.FormInput, { marginLeft: 14 }]}
             onChangeText={text => this.setState({ email: text })}
             value={this.state.email}
             autoCapitalize="none"
@@ -259,7 +259,7 @@ class AuthScreen extends Component {
         <View style={styles.Form}>
           <Iconset name="email" size={15} />
           <TextInput
-            style={styles.FormInput}
+            style={[styles.FormInput, { marginLeft: 14 }]}
             onChangeText={text => this.setState({ email: text })}
             value={this.state.email}
             autoCapitalize="none"

@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
   },
   Form: {
     flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 15,
     marginLeft: 10,
     marginRight: 10,
