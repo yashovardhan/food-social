@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Text, Image, FlatList, SafeAreaView } from 'react-native';
 import { Font } from 'expo';
-import { Header } from 'react-native-elements';
+import { Header, Card } from 'react-native-elements';
 
 import styles from '../styles/NotificationScreenStyle';
 
@@ -97,16 +97,32 @@ class NotificationScreen extends Component {
 
   render() {
     return (
-      <View style={styles.Back}>
+      <SafeAreaView style={styles.Back}>
         {this.state.fontLoaded ? (
-          <View style={styles.Back}>
+          <View style={styles.Main}>
             <Header
               centerComponent={{ text: 'Notifications', style: styles.HeaderText }}
               backgroundColor="#FFFFFF"
             />
+            <FlatList
+              data={this.state.notifications}
+              style={styles.FlatList}
+              renderItem={({ item }) => (
+                <Card flexDirection="row" containerStyle={styles.Card}>
+                  <Image style={styles.CardImage} resizeMode="contain" source={item.profile_pic} />
+                  <View style={styles.CardContent}>
+                    <Text style={styles.CardHeading}>{item.content}</Text>
+                    <Text style={styles.CardTime}>
+                      {item.date}, {item.time}
+                    </Text>
+                  </View>
+                </Card>
+              )}
+              keyExtractor={item => item.key}
+            />
           </View>
         ) : null}
-      </View>
+      </SafeAreaView>
     );
   }
 }
