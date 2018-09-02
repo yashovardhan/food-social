@@ -193,7 +193,7 @@ class AuthScreen extends Component {
           />
         </View>
         <TouchableOpacity
-          style={[styles.Button, { marginTop: 60, marginLeft: 10, marginRight: 10 }]}
+          style={[styles.Button, { marginTop: 60 }]}
           onPress={() => this.setState({ chosenCard: 'resetsuccess' })}>
           <Text style={styles.ButtonText}>CHANGE PASSWORD</Text>
         </TouchableOpacity>
