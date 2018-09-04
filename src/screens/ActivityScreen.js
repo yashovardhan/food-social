@@ -12,7 +12,7 @@ class ActivityScreen extends Component {
       {
         name: 'Urban Tadka',
         profile_pic: require('../../assets/icons/ut-pic.png'),
-        background: require('../../assets/images/coupon1.png'),
+        background: require('../../assets/images/coupon1.jpg'),
         expiry_date: '14 March 2017',
         content: '25% off on any dish',
         type: '25% OFF',
@@ -22,7 +22,7 @@ class ActivityScreen extends Component {
       {
         name: 'Asian Spices',
         profile_pic: require('../../assets/icons/as-pic.png'),
-        background: require('../../assets/images/coupon2.png'),
+        background: require('../../assets/images/coupon2.jpg'),
         expiry_date: '14 March 2017',
         content: 'Buy Paneer Handi and Get Mohito free',
         type: 'BUY 1 GET 1',
@@ -32,7 +32,7 @@ class ActivityScreen extends Component {
       {
         name: 'Pizza House',
         profile_pic: require('../../assets/icons/ph-pic.png'),
-        background: require('../../assets/images/coupon3.png'),
+        background: require('../../assets/images/coupon3.jpg'),
         expiry_date: '14 March 2017',
         content: 'Get Free Pizza',
         type: 'FREE GIFT',
