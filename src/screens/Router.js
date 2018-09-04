@@ -15,7 +15,7 @@ import ActivityScreen from './ActivityScreen';
 import SearchScreen from './SearchScreen';
 import NotificationScreen from './NotificationScreen';
 import BillScreen from './BillScreen';
-import MilestoneScreen from './MilestoneScreen';
+import PointsScreen from './PointsScreen';
 import FeedbackScreen from './FeedbackScreen';
 import ProfileScreen from './ProfileScreen';
 import OfferScreen from './OfferScreen';
@@ -89,7 +89,7 @@ class Router extends Component {
           }),
         },
         points: {
-          screen: MilestoneScreen,
+          screen: PointsScreen,
           navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => <Iconset name="milestone" color={tintColor} size={24} />,
           }),

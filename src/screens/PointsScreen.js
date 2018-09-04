@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Font } from 'expo';
 
-class MilestoneScreen extends Component {
+class PointsScreen extends Component {
   async componentDidMount() {
     await Font.loadAsync({
       'poppins-bold': require('../../assets/fonts/Poppins-Bold.otf'),
@@ -15,15 +15,15 @@ class MilestoneScreen extends Component {
   render() {
     return (
       <View>
-        <Text>MilestoneScreen</Text>
-        <Text>MilestoneScreen</Text>
-        <Text>MilestoneScreen</Text>
-        <Text>MilestoneScreen</Text>
-        <Text>MilestoneScreen</Text>
-        <Text>MilestoneScreen</Text>
+        <Text>PointsScreen</Text>
+        <Text>PointsScreen</Text>
+        <Text>PointsScreen</Text>
+        <Text>PointsScreen</Text>
+        <Text>PointsScreen</Text>
+        <Text>PointsScreen</Text>
       </View>
     );
   }
 }
 
-export default MilestoneScreen;
+export default PointsScreen;
