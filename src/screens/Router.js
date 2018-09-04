@@ -20,6 +20,8 @@ import FeedbackScreen from './FeedbackScreen';
 import ProfileScreen from './ProfileScreen';
 import OfferScreen from './OfferScreen';
 import CouponScreen from './CouponScreen';
+import PointsOfferScreen from './PointsOfferScreen';
+import RedemptionScreen from './RedemptionScreen';
 
 import TabBar from '../components/TabBar';
 
@@ -44,6 +46,16 @@ class Router extends Component {
         activityhome: ActivityScreen,
         offer: OfferScreen,
         coupon: CouponScreen,
+      },
+      {
+        headerMode: 'none',
+      }
+    );
+    const PointsFlow = createStackNavigator(
+      {
+        pointshome: PointsScreen,
+        pointsoffer: PointsOfferScreen,
+        redeem: RedemptionScreen,
       },
       {
         headerMode: 'none',
@@ -89,10 +101,19 @@ class Router extends Component {
           }),
         },
         points: {
-          screen: PointsScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="milestone" color={tintColor} size={24} />,
-          }),
+          screen: PointsFlow,
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => (
+                <Iconset name="milestone" color={tintColor} size={24} />
+              ),
+            };
+          },
         },
         feedback: {
           screen: FeedbackScreen,
