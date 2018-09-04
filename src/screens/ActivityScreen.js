@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { Header, Card } from 'react-native-elements';
 
@@ -68,38 +68,41 @@ class ActivityScreen extends Component {
               data={this.state.notifications}
               style={styles.FlatList}
               renderItem={({ item }) => (
-                <Card containerStyle={styles.Card}>
-                  <View style={styles.CardHeader}>
-                    <View style={styles.CardHeaderContainer}>
-                      <Image
-                        style={styles.CardProfilePic}
-                        resizeMode="contain"
-                        source={item.profile_pic}
-                      />
-                      <View style={styles.CardContent}>
-                        <Text style={styles.CardHeading}>{item.name}</Text>
-                        <Text style={styles.CardExpiryDate}>Valid Until: {item.expiry_date}</Text>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('offer')}>
+                  <Card containerStyle={styles.Card}>
+                    <View style={styles.CardHeader}>
+                      <View style={styles.CardHeaderContainer}>
+                        <Image
+                          style={styles.CardProfilePic}
+                          resizeMode="contain"
+                          source={item.profile_pic}
+                        />
+                        <View style={styles.CardContent}>
+                          <Text style={styles.CardHeading}>{item.name}</Text>
+                          <Text style={styles.CardExpiryDate}>Valid Until: {item.expiry_date}</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
-                  <View style={styles.CardBody}>
-                    <LinearGradient
-                      colors={item.colors}
-                      style={styles.CardBodyGradient}
-                      start={[0, 1]}>
-                      <Image
-                        style={styles.CardBackgroundImage}
-                        resizeMode="cover"
-                        source={item.background}
-                      />
-                      <View style={styles.CardBodyContainer}>
-                        <Text style={styles.CardBodyHeading}>{item.type}</Text>
-                        <View style={styles.CardBodySeparator} />
-                        <Text style={styles.CardBodyContent}>{item.content}</Text>
-                      </View>
-                    </LinearGradient>
-                  </View>
-                </Card>
+                    <View style={styles.CardBody}>
+                      <LinearGradient
+                        colors={item.colors}
+                        style={styles.CardBodyGradient}
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 1, y: 1 }}>
+                        <Image
+                          style={styles.CardBackgroundImage}
+                          resizeMode="cover"
+                          source={item.background}
+                        />
+                        <View style={styles.CardBodyContainer}>
+                          <Text style={styles.CardBodyHeading}>{item.type}</Text>
+                          <View style={styles.CardBodySeparator} />
+                          <Text style={styles.CardBodyContent}>{item.content}</Text>
+                        </View>
+                      </LinearGradient>
+                    </View>
+                  </Card>
+                </TouchableOpacity>
               )}
               keyExtractor={item => item.key}
             />
