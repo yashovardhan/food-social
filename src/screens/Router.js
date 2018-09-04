@@ -41,7 +41,7 @@ class Router extends Component {
   render() {
     const ActivityFlow = createStackNavigator(
       {
-        home: ActivityScreen,
+        activityhome: ActivityScreen,
         offer: OfferScreen,
         coupon: CouponScreen,
       },
