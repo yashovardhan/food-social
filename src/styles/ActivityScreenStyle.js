@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     margin: 0,
     borderWidth: 0,
     borderRadius: 5,
+    shadowOpacity: 0,
+    elevation: 0,
     backgroundColor: 'transparent',
   },
   CardProfilePic: {
@@ -39,6 +41,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 5,
     borderWidth: 0,
     shadowOpacity: 0,
+    elevation: 0,
   },
   CardHeaderContainer: {
     marginLeft: 10,
