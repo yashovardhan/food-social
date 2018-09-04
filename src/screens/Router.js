@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import {
+  createSwitchNavigator,
+  createBottomTabNavigator,
+  createStackNavigator,
+} from 'react-navigation';
 import { View } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
@@ -14,6 +18,8 @@ import BillScreen from './BillScreen';
 import MilestoneScreen from './MilestoneScreen';
 import FeedbackScreen from './FeedbackScreen';
 import ProfileScreen from './ProfileScreen';
+import OfferScreen from './OfferScreen';
+import CouponScreen from './CouponScreen';
 
 import TabBar from '../components/TabBar';
 
@@ -33,75 +39,89 @@ class Router extends Component {
   }
 
   render() {
+    const ActivityFlow = createStackNavigator(
+      {
+        home: ActivityScreen,
+        offer: OfferScreen,
+        coupon: CouponScreen,
+      },
+      {
+        headerMode: 'none',
+      }
+    );
+    const MainFlow = createBottomTabNavigator(
+      {
+        home: {
+          screen: HomeScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="feed" color={tintColor} size={24} />,
+          }),
+        },
+        activity: {
+          screen: ActivityFlow,
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
+            };
+          },
+        },
+        search: {
+          screen: SearchScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="store" color={tintColor} size={24} />,
+          }),
+        },
+        noti: {
+          screen: NotificationScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="noti" color={tintColor} size={24} />,
+          }),
+        },
+        bills: {
+          screen: BillScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="bill" color={tintColor} size={24} />,
+          }),
+        },
+        points: {
+          screen: MilestoneScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="milestone" color={tintColor} size={24} />,
+          }),
+        },
+        feedback: {
+          screen: FeedbackScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="review" color={tintColor} size={24} />,
+          }),
+        },
+        profile: {
+          screen: ProfileScreen,
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="user" color={tintColor} size={24} />,
+          }),
+        },
+      },
+      {
+        tabBarComponent: TabBar,
+        tabBarOptions: {
+          activeTintColor: '#FF5F35',
+          activeBackgroundColor: '#FFFFFF',
+          inactiveTintColor: '#AFAFAF',
+          inactiveBackgroundColor: '#FFFFFF',
+          showLabel: false,
+        },
+      }
+    );
     const AppFlow = createSwitchNavigator(
       {
         auth: AuthScreen,
-        main: createBottomTabNavigator(
-          {
-            home: {
-              screen: HomeScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="feed" color={tintColor} size={24} />,
-              }),
-            },
-            activity: {
-              screen: ActivityScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
-              }),
-            },
-            search: {
-              screen: SearchScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="store" color={tintColor} size={24} />,
-              }),
-            },
-            noti: {
-              screen: NotificationScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="noti" color={tintColor} size={24} />,
-              }),
-            },
-            bills: {
-              screen: BillScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="bill" color={tintColor} size={24} />,
-              }),
-            },
-            points: {
-              screen: MilestoneScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => (
-                  <Iconset name="milestone" color={tintColor} size={24} />
-                ),
-              }),
-            },
-            feedback: {
-              screen: FeedbackScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => (
-                  <Iconset name="review" color={tintColor} size={24} />
-                ),
-              }),
-            },
-            profile: {
-              screen: ProfileScreen,
-              navigationOptions: () => ({
-                tabBarIcon: ({ tintColor }) => <Iconset name="user" color={tintColor} size={24} />,
-              }),
-            },
-          },
-          {
-            tabBarComponent: TabBar,
-            tabBarOptions: {
-              activeTintColor: '#FF5F35',
-              activeBackgroundColor: '#FFFFFF',
-              inactiveTintColor: '#AFAFAF',
-              inactiveBackgroundColor: '#FFFFFF',
-              showLabel: false,
-            },
-          }
-        ),
+        main: MainFlow,
       },
       {}
     );
