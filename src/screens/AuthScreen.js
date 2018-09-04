@@ -322,7 +322,11 @@ class AuthScreen extends Component {
             <View style={styles.Back}>
               <View style={styles.Back}>
                 <View style={styles.TopBack}>
-                  <LinearGradient colors={['#FF8A59', '#FF5F35']} style={{ flex: 1 }}>
+                  <LinearGradient
+                    colors={['#FF8A59', '#FF5F35']}
+                    style={{ flex: 1 }}
+                    start={[0.2, 1]}
+                    end={[1, 1]}>
                     <Image
                       source={this.state.backPattern}
                       resizeMode="cover"
