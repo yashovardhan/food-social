@@ -22,6 +22,7 @@ import OfferScreen from './OfferScreen';
 import CouponScreen from './CouponScreen';
 import PointsOfferScreen from './PointsOfferScreen';
 import RedemptionScreen from './RedemptionScreen';
+import DetailsScreen from './DetailsScreen';
 
 import TabBar from '../components/TabBar';
 
@@ -61,6 +62,15 @@ class Router extends Component {
         headerMode: 'none',
       }
     );
+    const SearchFlow = createStackNavigator(
+      {
+        searchhome: SearchScreen,
+        details: DetailsScreen,
+      },
+      {
+        headerMode: 'none',
+      }
+    );
     const MainFlow = createBottomTabNavigator(
       {
         home: {
@@ -83,10 +93,17 @@ class Router extends Component {
           },
         },
         search: {
-          screen: SearchScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="store" color={tintColor} size={24} />,
-          }),
+          screen: SearchFlow,
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => <Iconset name="store" color={tintColor} size={24} />,
+            };
+          },
         },
         noti: {
           screen: NotificationScreen,
