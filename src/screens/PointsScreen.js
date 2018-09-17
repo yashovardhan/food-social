@@ -11,7 +11,7 @@ class PointsScreen extends Component {
     notifications: [
       {
         name: 'Urban Tadka',
-        points: 4000,
+        points: 400,
         key: '1',
       },
       {
