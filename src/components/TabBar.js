@@ -45,7 +45,10 @@ class TabBar extends Component {
                     <View style={styles.tab} key={route.key}>
                       <TouchableHighlight
                         underlayColor="rgba(255,95,53,0.09)"
-                        onPress={() => jumpTo(route.key)}
+                        onPress={() => {
+                          jumpTo(route.key);
+                          this.setState({ menu_open: false });
+                        }}
                         style={styles.touch}>
                         <View style={styles.tab}>
                           {renderIcon({
@@ -63,7 +66,10 @@ class TabBar extends Component {
                     <View style={styles.tab} key={route.key}>
                       <TouchableHighlight
                         underlayColor="rgba(255,95,53,0.09)"
-                        onPress={() => jumpTo(route.key)}
+                        onPress={() => {
+                          jumpTo(route.key);
+                          this.setState({ menu_open: false });
+                        }}
                         style={styles.touch}>
                         <View style={styles.tab}>
                           {renderIcon({
@@ -93,7 +99,7 @@ class TabBar extends Component {
                           underlayColor="rgba(255,95,53,0.09)"
                           onPress={() => {
                             jumpTo(route.key);
-                            this.setState({ selected_secondary_route: index });
+                            this.setState({ selected_secondary_route: index, menu_open: false });
                           }}
                           style={styles.touch}>
                           <View style={styles.tab}>
