@@ -3,6 +3,7 @@ import {
   createSwitchNavigator,
   createBottomTabNavigator,
   createStackNavigator,
+  createMaterialTopTabNavigator,
 } from 'react-navigation';
 import { View } from 'react-native';
 import { Font } from 'expo';
@@ -13,8 +14,6 @@ import AuthScreen from './AuthScreen';
 import HomeScreen from './HomeScreen';
 import ActivityScreen from './ActivityScreen';
 import SearchScreen from './SearchScreen';
-import NotificationScreen from './NotificationScreen';
-import BillScreen from './BillScreen';
 import PointsScreen from './PointsScreen';
 import FeedbackScreen from './FeedbackScreen';
 import ProfileScreen from './ProfileScreen';
@@ -23,8 +22,6 @@ import CouponScreen from './CouponScreen';
 import PointsOfferScreen from './PointsOfferScreen';
 import RedemptionScreen from './RedemptionScreen';
 import DetailsScreen from './DetailsScreen';
-
-import TabBar from '../components/TabBar';
 
 const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
@@ -71,6 +68,10 @@ class Router extends Component {
         headerMode: 'none',
       }
     );
+    const OfferFlow = createMaterialTopTabNavigator({
+      activity: ActivityFlow,
+      points: PointsFlow,
+    });
     const MainFlow = createBottomTabNavigator(
       {
         home: {
@@ -79,8 +80,8 @@ class Router extends Component {
             tabBarIcon: ({ tintColor }) => <Iconset name="feed" color={tintColor} size={24} />,
           }),
         },
-        activity: {
-          screen: ActivityFlow,
+        offer: {
+          screen: OfferFlow,
           navigationOptions: ({ navigation }) => {
             let tabBarVisible = true;
             if (navigation.state.index > 0) {
@@ -105,33 +106,6 @@ class Router extends Component {
             };
           },
         },
-        noti: {
-          screen: NotificationScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="noti" color={tintColor} size={24} />,
-          }),
-        },
-        bills: {
-          screen: BillScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="bill" color={tintColor} size={24} />,
-          }),
-        },
-        points: {
-          screen: PointsFlow,
-          navigationOptions: ({ navigation }) => {
-            let tabBarVisible = true;
-            if (navigation.state.index > 0) {
-              tabBarVisible = false;
-            }
-            return {
-              tabBarVisible,
-              tabBarIcon: ({ tintColor }) => (
-                <Iconset name="milestone" color={tintColor} size={24} />
-              ),
-            };
-          },
-        },
         feedback: {
           screen: FeedbackScreen,
           navigationOptions: () => ({
@@ -146,7 +120,6 @@ class Router extends Component {
         },
       },
       {
-        tabBarComponent: TabBar,
         tabBarOptions: {
           activeTintColor: '#FF5F35',
           activeBackgroundColor: '#FFFFFF',
