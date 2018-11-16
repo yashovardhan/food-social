@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 import { Font } from 'expo';
-import { Header, Card } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 
 import styles from '../styles/PointsScreenStyle';
 
@@ -61,10 +61,6 @@ class PointsScreen extends Component {
       <SafeAreaView style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
-            <Header
-              centerComponent={{ text: 'Activity', style: styles.HeaderText }}
-              backgroundColor="#FFFFFF"
-            />
             <FlatList
               data={this.state.notifications}
               style={styles.FlatList}
