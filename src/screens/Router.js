@@ -39,6 +39,31 @@ class Router extends Component {
   }
 
   render() {
+    const TabNavOptions = {
+      tabBarPosition: 'top',
+      swipeEnabled: true,
+      tabBarOptions: {
+        activeTintColor: '#FF5722',
+        activeBackgroundColor: '#FFFFFF',
+        inactiveTintColor: '#757575',
+        inactiveBackgroundColor: '#FFFFFF',
+        showIcon: false,
+        upperCaseLabel: false,
+        labelStyle: {
+          fontSize: 13,
+          fontFamily: 'poppins-medium',
+        },
+        style: {
+          backgroundColor: '#FFFFFF',
+          shadowColor: 'transparent',
+          borderTopColor: '#FFFFFF',
+        },
+        indicatorStyle: {
+          borderBottomColor: '#FF5722',
+          borderBottomWidth: 2,
+        },
+      },
+    };
     const ActivityFlow = createStackNavigator(
       {
         activityhome: ActivityScreen,
@@ -68,10 +93,26 @@ class Router extends Component {
         headerMode: 'none',
       }
     );
-    const OfferFlow = createMaterialTopTabNavigator({
-      activity: ActivityFlow,
-      points: PointsFlow,
-    });
+    const OfferFlow = createMaterialTopTabNavigator(
+      {
+        activity: {
+          screen: ActivityFlow,
+          navigationOptions: {
+            title: 'Activity',
+          },
+        },
+        points: {
+          screen: PointsFlow,
+          navigationOptions: {
+            title: 'Points',
+          },
+        },
+      },
+      {
+        ...TabNavOptions,
+        lazy: false,
+      }
+    );
     const MainFlow = createBottomTabNavigator(
       {
         home: {
@@ -82,16 +123,9 @@ class Router extends Component {
         },
         offer: {
           screen: OfferFlow,
-          navigationOptions: ({ navigation }) => {
-            let tabBarVisible = true;
-            if (navigation.state.index > 0) {
-              tabBarVisible = false;
-            }
-            return {
-              tabBarVisible,
-              tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
-            };
-          },
+          navigationOptions: () => ({
+            tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
+          }),
         },
         search: {
           screen: SearchFlow,
