@@ -5,7 +5,10 @@
     "slug": "food-social",
     "privacy": "public",
     "sdkVersion": "29.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,7 +30,6 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.food.social"
-
     }
   }
 }
