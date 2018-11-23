@@ -42,9 +42,13 @@ class OfferScreen extends Component {
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
             <View style={styles.BackArea}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                <Iconset name="back" color="#000000" size={10} style={styles.BackIcon} />
-              </TouchableOpacity>
+              <Iconset
+                name="back"
+                color="#FFFFFF"
+                size={14}
+                style={styles.BackIcon}
+                onPress={() => this.props.navigation.navigate('offers')}
+              />
             </View>
             <View style={styles.GraphicArea}>
               <Image source={this.state.background} resizeMode="cover" style={styles.Graphic} />

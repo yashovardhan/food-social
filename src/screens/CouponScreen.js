@@ -32,9 +32,13 @@ class CouponScreen extends Component {
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
             <View style={styles.BackArea}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                <Iconset name="back" color="#000000" size={10} style={styles.BackIcon} />
-              </TouchableOpacity>
+              <Iconset
+                name="back"
+                color="#FFFFFF"
+                size={14}
+                style={styles.BackIcon}
+                onPress={() => this.props.navigation.goBack()}
+              />
             </View>
             <View style={styles.GraphicArea}>
               <Image source={this.state.gifticon} resizeMode="center" style={styles.Graphic} />

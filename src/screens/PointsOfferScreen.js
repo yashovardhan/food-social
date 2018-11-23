@@ -68,6 +68,15 @@ class PointsOfferScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
+            <View style={styles.BackArea}>
+              <Iconset
+                name="back"
+                color="#FFFFFF"
+                size={14}
+                style={styles.BackIcon}
+                onPress={() => this.props.navigation.navigate('points')}
+              />
+            </View>
             <View style={styles.HeadingArea}>
               <LinearGradient
                 style={styles.HeadingBackground}
@@ -83,11 +92,6 @@ class PointsOfferScreen extends Component {
                   <Text style={[styles.CardPointsText, { fontSize: 13 }]}>Points</Text>
                 </View>
               </View>
-            </View>
-            <View style={styles.BackButton}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                <Iconset name="back" color="#FFFFFF" size={10} style={styles.BackIcon} />
-              </TouchableOpacity>
             </View>
             <View style={styles.MainArea}>
               <FlatList

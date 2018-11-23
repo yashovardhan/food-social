@@ -6,15 +6,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   BackArea: {
-    height: 16,
+    height: 20,
     padding: 2,
-    backgroundColor: '#FFFFFF',
+    paddingLeft: 6,
+    backgroundColor: '#000000',
   },
   BackIcon: {
     marginLeft: 2,
   },
   GraphicArea: {
-    height: 200,
+    height: 250,
   },
   Graphic: {
     width: '100%',

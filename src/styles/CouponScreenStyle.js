@@ -6,9 +6,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   BackArea: {
-    height: 16,
+    height: 20,
     padding: 2,
-    backgroundColor: '#FFFFFF',
+    paddingLeft: 6,
+    backgroundColor: '#000000',
   },
   BackIcon: {
     marginLeft: 2,

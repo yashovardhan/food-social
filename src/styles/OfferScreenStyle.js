@@ -6,22 +6,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   BackArea: {
-    height: 16,
+    height: 20,
     padding: 2,
-    backgroundColor: '#FFFFFF',
+    paddingLeft: 6,
+    backgroundColor: '#000000',
   },
   BackIcon: {
     marginLeft: 2,
   },
   GraphicArea: {
-    flex: 4,
+    flex: 5,
   },
   Graphic: {
     width: '100%',
     height: '100%',
   },
   DetailsArea: {
-    flex: 6,
+    flex: 10,
     backgroundColor: '#FFFFFF',
     padding: 12,
   },

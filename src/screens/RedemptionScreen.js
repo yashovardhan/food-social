@@ -42,6 +42,15 @@ class RedemptionScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
+            <View style={styles.BackArea}>
+              <Iconset
+                name="back"
+                color="#FFFFFF"
+                size={14}
+                style={styles.BackIcon}
+                onPress={() => this.props.navigation.goBack()}
+              />
+            </View>
             <View style={styles.HeadingArea}>
               <LinearGradient
                 style={styles.HeadingBackground}
@@ -64,11 +73,6 @@ class RedemptionScreen extends Component {
                   <Text style={[styles.PointsText, { fontSize: 18 }]}>POINTS</Text>
                 </View>
               </View>
-            </View>
-            <View style={styles.BackButton}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                <Iconset name="back" color="#FFFFFF" size={10} style={styles.BackIcon} />
-              </TouchableOpacity>
             </View>
             <View style={styles.MainArea}>
               <Text style={styles.TnC}>T & C</Text>

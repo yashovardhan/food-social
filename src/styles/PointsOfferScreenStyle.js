@@ -7,16 +7,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  BackButton: {
-    height: 16,
+  BackArea: {
+    height: 20,
     padding: 2,
-    backgroundColor: 'transparent',
-    zIndex: 1,
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
+    paddingLeft: 6,
+    backgroundColor: '#000000',
+  },
+  BackIcon: {
+    marginLeft: 2,
   },
   HeadingArea: {
     flex: 2,
@@ -34,9 +32,6 @@ const styles = StyleSheet.create({
     transform: [{ scaleX: 3 }],
     overflow: 'hidden',
     position: 'absolute',
-  },
-  BackIcon: {
-    marginLeft: 2,
   },
   MainArea: {
     flex: 6,

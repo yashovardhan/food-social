@@ -42,13 +42,17 @@ class DetailsScreen extends Component {
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
             <View style={styles.BackArea}>
-              <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                <Iconset name="back" color="#000000" size={10} style={styles.BackIcon} />
-              </TouchableOpacity>
+              <Iconset
+                name="back"
+                color="#FFFFFF"
+                size={14}
+                style={styles.BackIcon}
+                onPress={() => this.props.navigation.goBack()}
+              />
             </View>
             <ScrollView
               contentContainerStyle={{ flex: 1, backgroundColor: '#F5F5F5' }}
-              style={{ flexGrow: 10 }}>
+              style={{ flexGrow: 15 }}>
               <View style={styles.GraphicArea}>
                 <Image source={this.state.background} resizeMode="cover" style={styles.Graphic} />
               </View>

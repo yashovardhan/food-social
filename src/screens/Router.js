@@ -5,7 +5,7 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import { View, Platform, Easing, Animated } from 'react-native';
+import { View, Platform, Easing, Animated, StatusBar, Dimensions } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -24,6 +24,8 @@ import RedemptionScreen from './RedemptionScreen';
 import DetailsScreen from './DetailsScreen';
 
 const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
+
+var { height } = Dimensions.get('window');
 
 class Router extends Component {
   state = {
@@ -229,7 +231,12 @@ class Router extends Component {
 
     return (
       <View
-        style={{ flex: 1, backgroundColor: '#000000', paddingTop: Platform.OS === 'ios' ? 30 : 0 }}>
+        style={{
+          flex: 1,
+          backgroundColor: '#000000',
+          paddingTop: Platform.OS === 'ios' ? height / 25 : 0,
+        }}>
+        <StatusBar backgroundColor="black" barStyle="light-content" />
         {this.state.fontLoaded ? <AppFlow /> : null}
       </View>
     );
