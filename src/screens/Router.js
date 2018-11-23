@@ -72,6 +72,9 @@ class Router extends Component {
       },
       {
         headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
       }
     );
     const PointsFlow = createStackNavigator(
@@ -82,6 +85,9 @@ class Router extends Component {
       },
       {
         headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
       }
     );
     const SearchFlow = createStackNavigator(
@@ -91,6 +97,9 @@ class Router extends Component {
       },
       {
         headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
       }
     );
     const OfferFlow = createMaterialTopTabNavigator(
