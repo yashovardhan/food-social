@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, TouchableOpacity } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { Card } from 'react-native-elements';
 
@@ -57,7 +57,7 @@ class ActivityScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.Back}>
+      <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <FlatList
@@ -104,7 +104,7 @@ class ActivityScreen extends Component {
             />
           </View>
         ) : null}
-      </SafeAreaView>
+      </View>
     );
   }
 }

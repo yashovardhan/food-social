@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  StatusBar,
 } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { Card, Icon } from 'react-native-elements';
@@ -316,7 +315,6 @@ class AuthScreen extends Component {
   render() {
     return (
       <KeyboardAvoidingView style={[styles.Back, { flex: 1 }]} behavior="position" enabled>
-        <StatusBar hidden />
         {this.state.fontLoaded ? (
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.Back}>

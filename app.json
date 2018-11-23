@@ -30,6 +30,9 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.food.social"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#000000"
     }
   }
 }

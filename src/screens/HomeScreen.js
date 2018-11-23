@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, Image, FlatList } from 'react-native';
 import { Font } from 'expo';
 import { Card } from 'react-native-elements';
 
@@ -134,7 +134,7 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.Back}>
+      <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <FlatList
@@ -173,7 +173,7 @@ class HomeScreen extends Component {
             />
           </View>
         ) : null}
-      </SafeAreaView>
+      </View>
     );
   }
 }

@@ -5,7 +5,7 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import { View } from 'react-native';
+import { View, Platform } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -172,7 +172,8 @@ class Router extends Component {
     );
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+      <View
+        style={{ flex: 1, backgroundColor: '#000000', paddingTop: Platform.OS === 'ios' ? 30 : 0 }}>
         {this.state.fontLoaded ? <AppFlow /> : null}
       </View>
     );

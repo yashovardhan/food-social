@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, Image, FlatList } from 'react-native';
 import { Font } from 'expo';
 import { Header, Card } from 'react-native-elements';
 
@@ -97,7 +97,7 @@ class NotificationScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.Back}>
+      <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <Header
@@ -122,7 +122,7 @@ class NotificationScreen extends Component {
             />
           </View>
         ) : null}
-      </SafeAreaView>
+      </View>
     );
   }
 }

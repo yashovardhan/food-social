@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -42,7 +42,6 @@ class RedemptionScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
-            <StatusBar hidden />
             <View style={styles.HeadingArea}>
               <LinearGradient
                 style={styles.HeadingBackground}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -41,7 +41,6 @@ class DetailsScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
-            <StatusBar hidden />
             <View style={styles.BackArea}>
               <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                 <Iconset name="back" color="#000000" size={10} style={styles.BackIcon} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -31,7 +31,6 @@ class CouponScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Back}>
-            <StatusBar hidden />
             <View style={styles.BackArea}>
               <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                 <Iconset name="back" color="#000000" size={10} style={styles.BackIcon} />
