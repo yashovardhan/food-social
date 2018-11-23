@@ -5,7 +5,7 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import { View, Platform } from 'react-native';
+import { View, Platform, Easing, Animated } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -64,9 +64,31 @@ class Router extends Component {
         },
       },
     };
+    const transitionConfig = () => {
+      return {
+        transitionSpec: {
+          duration: 750,
+          easing: Easing.out(Easing.poly(4)),
+          timing: Animated.timing,
+          useNativeDriver: true,
+        },
+        screenInterpolator: sceneProps => {
+          const { layout, position, scene } = sceneProps;
+
+          const thisSceneIndex = scene.index;
+          const width = layout.initWidth;
+
+          const translateX = position.interpolate({
+            inputRange: [thisSceneIndex - 1, thisSceneIndex],
+            outputRange: [width, 0],
+          });
+
+          return { transform: [{ translateX }] };
+        },
+      };
+    };
     const ActivityFlow = createStackNavigator(
       {
-        activityhome: ActivityScreen,
         offer: OfferScreen,
         coupon: CouponScreen,
       },
@@ -75,6 +97,7 @@ class Router extends Component {
         navigationOptions: {
           gesturesEnabled: true,
         },
+        transitionConfig,
       }
     );
     const PointsFlow = createStackNavigator(
@@ -88,6 +111,7 @@ class Router extends Component {
         navigationOptions: {
           gesturesEnabled: true,
         },
+        transitionConfig,
       }
     );
     const SearchFlow = createStackNavigator(
@@ -100,6 +124,7 @@ class Router extends Component {
         navigationOptions: {
           gesturesEnabled: true,
         },
+        transitionConfig,
       }
     );
     const OfferFlow = createMaterialTopTabNavigator(
@@ -177,7 +202,9 @@ class Router extends Component {
         auth: AuthScreen,
         main: MainFlow,
       },
-      {}
+      {
+        transitionConfig,
+      }
     );
 
     return (
