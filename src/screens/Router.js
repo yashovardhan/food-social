@@ -22,6 +22,7 @@ import CouponScreen from './CouponScreen';
 import PointsOfferScreen from './PointsOfferScreen';
 import RedemptionScreen from './RedemptionScreen';
 import DetailsScreen from './DetailsScreen';
+import NotificationScreen from './NotificationScreen';
 
 const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
@@ -162,10 +163,23 @@ class Router extends Component {
         transitionConfig,
       }
     );
+    const HomeFlow = createStackNavigator(
+      {
+        feedhome: HomeScreen,
+        noti: NotificationScreen,
+      },
+      {
+        headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
+        transitionConfig,
+      }
+    );
     const MainFlow = createBottomTabNavigator(
       {
         home: {
-          screen: HomeScreen,
+          screen: HomeFlow,
           navigationOptions: () => ({
             tabBarIcon: ({ tintColor }) => <Iconset name="feed" color={tintColor} size={24} />,
           }),
