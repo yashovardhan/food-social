@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   Back: {
@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   Main: {
     flex: 1,
     backgroundColor: '#F5F5F5',
-    marginTop: Platform.OS === 'android' ? 20 : null,
   },
   HeaderText: {
     fontFamily: 'poppins-regular',
