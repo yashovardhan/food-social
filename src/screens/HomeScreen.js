@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image, FlatList, ScrollView, Dimensions } from 'react-native';
 import { Font } from 'expo';
-import { Card } from 'react-native-elements';
+import { Header, Card } from 'react-native-elements';
+import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
+import icoMoonConfig from '../../assets/selection.json';
 import styles from '../styles/HomeScreenStyle';
+
+var { width } = Dimensions.get('window');
+
+const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
 class HomeScreen extends Component {
   state = {
@@ -125,6 +131,7 @@ class HomeScreen extends Component {
       'poppins-light': require('../../assets/fonts/Poppins-Light.otf'),
       'poppins-regular': require('../../assets/fonts/Poppins-Regular.otf'),
       'poppins-medium': require('../../assets/fonts/Poppins-Medium.otf'),
+      icomoon: require('../../assets/fonts/icomoon.ttf'),
     });
 
     this.setState({
@@ -137,6 +144,19 @@ class HomeScreen extends Component {
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
+            <Header
+              leftComponent={<Text style={styles.HeadText}>Feed</Text>}
+              rightComponent={
+                <Iconset
+                  name="noti"
+                  color="#000000"
+                  size={22}
+                  style={{ paddingBottom: 10 }}
+                  onPress={() => this.props.navigation.navigate('noti')}
+                />
+              }
+              backgroundColor="#FFFFFF"
+            />
             <FlatList
               data={this.state.notifications}
               style={styles.FlatList}
@@ -162,11 +182,24 @@ class HomeScreen extends Component {
                       1500s, when an unknown printer took a ok of type
                     </Text>
                   </View>
-                  {item.media ? (
-                    <View>
-                      <Text>Image</Text>
-                    </View>
-                  ) : null}
+                  <ScrollView horizontal pagingEnabled style={[styles.ImageScroller, { width }]}>
+                    <Image
+                      source={require('../../assets/images/pic1.jpg')}
+                      style={{ height: width, width }}
+                    />
+                    <Image
+                      source={require('../../assets/images/pic2.jpg')}
+                      style={{ height: width, width }}
+                    />
+                    <Image
+                      source={require('../../assets/images/pic1.jpg')}
+                      style={{ height: width, width }}
+                    />
+                    <Image
+                      source={require('../../assets/images/pic2.jpg')}
+                      style={{ height: width, width }}
+                    />
+                  </ScrollView>
                 </Card>
               )}
               keyExtractor={item => item.key}

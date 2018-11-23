@@ -1,12 +1,14 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   Back: {
     flex: 1,
     backgroundColor: '#F5F5F5',
   },
-  Main: {
-    marginTop: Platform.OS === 'android' ? 20 : 5,
+  HeadText: {
+    fontFamily: 'poppins-regular',
+    color: '#000000',
+    fontSize: 22,
   },
   Card: {
     marginTop: 5,
@@ -15,13 +17,16 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderWidth: 0,
     shadowOpacity: 0,
+    padding: 0,
   },
+  ImageScroller: {},
   HeaderImage: {
     width: 40,
     height: 40,
   },
   CardHeader: {
     flexDirection: 'row',
+    padding: 10,
   },
   HeaderText: {
     marginLeft: 12,
@@ -29,6 +34,7 @@ const styles = StyleSheet.create({
   },
   CardContent: {
     marginTop: 10,
+    padding: 10,
   },
   CardTitle: {
     fontFamily: 'poppins-medium',
