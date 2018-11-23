@@ -102,7 +102,6 @@ class Router extends Component {
     );
     const PointsFlow = createStackNavigator(
       {
-        pointshome: PointsScreen,
         pointsoffer: PointsOfferScreen,
         redeem: RedemptionScreen,
       },
@@ -127,16 +126,16 @@ class Router extends Component {
         transitionConfig,
       }
     );
-    const OfferFlow = createMaterialTopTabNavigator(
+    const OfferTabFlow = createMaterialTopTabNavigator(
       {
         activity: {
-          screen: ActivityFlow,
+          screen: ActivityScreen,
           navigationOptions: {
             title: 'Activity',
           },
         },
         points: {
-          screen: PointsFlow,
+          screen: PointsScreen,
           navigationOptions: {
             title: 'Points',
           },
@@ -145,6 +144,20 @@ class Router extends Component {
       {
         ...TabNavOptions,
         lazy: false,
+      }
+    );
+    const OfferFlow = createStackNavigator(
+      {
+        offers: OfferTabFlow,
+        points: PointsFlow,
+        activity: ActivityFlow,
+      },
+      {
+        headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
+        transitionConfig,
       }
     );
     const MainFlow = createBottomTabNavigator(
@@ -157,9 +170,16 @@ class Router extends Component {
         },
         offer: {
           screen: OfferFlow,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
-          }),
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => <Iconset name="offer" color={tintColor} size={24} />,
+            };
+          },
         },
         search: {
           screen: SearchFlow,
