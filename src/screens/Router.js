@@ -43,9 +43,9 @@ class Router extends Component {
       tabBarPosition: 'top',
       swipeEnabled: true,
       tabBarOptions: {
-        activeTintColor: '#FF5722',
+        activeTintColor: '#FF5F35',
         activeBackgroundColor: '#FFFFFF',
-        inactiveTintColor: '#757575',
+        inactiveTintColor: '#AFAFAF',
         inactiveBackgroundColor: '#FFFFFF',
         showIcon: false,
         upperCaseLabel: false,
@@ -59,7 +59,7 @@ class Router extends Component {
           borderTopColor: '#FFFFFF',
         },
         indicatorStyle: {
-          borderBottomColor: '#FF5722',
+          borderBottomColor: '#FF5F35',
           borderBottomWidth: 2,
         },
       },
