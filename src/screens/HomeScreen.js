@@ -182,7 +182,11 @@ class HomeScreen extends Component {
                       1500s, when an unknown printer took a ok of type
                     </Text>
                   </View>
-                  <ScrollView horizontal pagingEnabled style={[styles.ImageScroller, { width }]}>
+                  <ScrollView
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled
+                    style={[styles.ImageScroller, { width }]}>
                     <Image
                       source={require('../../assets/images/pic1.jpg')}
                       style={{ height: width, width }}
