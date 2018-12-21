@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity, FlatList } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -65,9 +65,9 @@ class PointsOfferScreen extends Component {
 
   render() {
     return (
-      <View style={styles.Back}>
+      <SafeAreaView style={styles.Back}>
         {this.state.fontLoaded ? (
-          <View style={styles.Back}>
+          <View style={styles.Main}>
             <View style={styles.BackArea}>
               <Iconset
                 name="back"
@@ -135,7 +135,7 @@ class PointsOfferScreen extends Component {
             </View>
           </View>
         ) : null}
-      </View>
+      </SafeAreaView>
     );
   }
 }

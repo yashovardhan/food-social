@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   Back: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  Main: {
+    flex: 1,
     backgroundColor: '#F5F5F5',
   },
   HeadText: {

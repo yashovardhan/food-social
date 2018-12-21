@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, FlatList, ScrollView, Dimensions } from 'react-native';
+import { SafeAreaView, View, Text, Image, FlatList, ScrollView, Dimensions } from 'react-native';
 import { Font } from 'expo';
 import { Header, Card } from 'react-native-elements';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
@@ -141,7 +141,7 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <View style={styles.Back}>
+      <SafeAreaView style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <Header
@@ -210,7 +210,7 @@ class HomeScreen extends Component {
             />
           </View>
         ) : null}
-      </View>
+      </SafeAreaView>
     );
   }
 }
