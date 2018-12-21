@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, Image, FlatList, ScrollView, Dimensions } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  FlatList,
+  ScrollView,
+  Dimensions,
+  Animated,
+  TouchableOpacity,
+} from 'react-native';
 import { Font } from 'expo';
 import { Header, Card } from 'react-native-elements';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
@@ -12,6 +22,8 @@ var { width } = Dimensions.get('window');
 const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
 class HomeScreen extends Component {
+  scrollX = new Animated.Value(0);
+
   state = {
     fontLoaded: false,
     profile_pic: '',
@@ -24,6 +36,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '1',
         media: [require('../../assets/images/pic1.jpg'), require('../../assets/images/pic2.jpg')],
+        likes: 14,
       },
       {
         profile_pic: require('../../assets/icons/bh-pic.png'),
@@ -33,6 +46,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '2',
         media: [require('../../assets/images/pic1.jpg')],
+        likes: 34,
       },
       {
         profile_pic: require('../../assets/icons/as-pic.png'),
@@ -42,6 +56,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '3',
         media: [],
+        likes: 1,
       },
       {
         profile_pic: require('../../assets/icons/ut-pic.png'),
@@ -58,6 +73,7 @@ class HomeScreen extends Component {
           require('../../assets/images/pic1.jpg'),
           require('../../assets/images/pic2.jpg'),
         ],
+        likes: 12,
       },
       {
         profile_pic: require('../../assets/icons/bh-pic.png'),
@@ -66,6 +82,8 @@ class HomeScreen extends Component {
         time: '4:47 PM',
         content: 'Pizza House added 100 points in your Account',
         key: '5',
+        media: [],
+        likes: 3,
       },
       {
         profile_pic: require('../../assets/icons/as-pic.png'),
@@ -86,6 +104,7 @@ class HomeScreen extends Component {
           require('../../assets/images/pic1.jpg'),
           require('../../assets/images/pic2.jpg'),
         ],
+        likes: 114,
       },
       {
         profile_pic: require('../../assets/icons/ut-pic.png'),
@@ -95,6 +114,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '7',
         media: [require('../../assets/images/pic1.jpg'), require('../../assets/images/pic2.jpg')],
+        likes: 17,
       },
       {
         profile_pic: require('../../assets/icons/bh-pic.png'),
@@ -104,6 +124,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '8',
         media: [],
+        likes: 4,
       },
       {
         profile_pic: require('../../assets/icons/as-pic.png'),
@@ -112,6 +133,8 @@ class HomeScreen extends Component {
         time: '4:47 PM',
         content: 'Pizza House added 100 points in your Account',
         key: '9',
+        media: [],
+        likes: 2,
       },
       {
         profile_pic: require('../../assets/icons/ut-pic.png'),
@@ -121,6 +144,7 @@ class HomeScreen extends Component {
         content: 'Pizza House added 100 points in your Account',
         key: '10',
         media: [require('../../assets/images/pic1.jpg'), require('../../assets/images/pic2.jpg')],
+        likes: 19,
       },
     ],
   };
@@ -140,6 +164,8 @@ class HomeScreen extends Component {
   }
 
   render() {
+    let position = Animated.divide(this.scrollX, width);
+
     return (
       <SafeAreaView style={styles.Back}>
         {this.state.fontLoaded ? (
@@ -186,24 +212,45 @@ class HomeScreen extends Component {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled
-                    style={[styles.ImageScroller, { width }]}>
-                    <Image
-                      source={require('../../assets/images/pic1.jpg')}
-                      style={{ height: width, width }}
-                    />
-                    <Image
-                      source={require('../../assets/images/pic2.jpg')}
-                      style={{ height: width, width }}
-                    />
-                    <Image
-                      source={require('../../assets/images/pic1.jpg')}
-                      style={{ height: width, width }}
-                    />
-                    <Image
-                      source={require('../../assets/images/pic2.jpg')}
-                      style={{ height: width, width }}
-                    />
+                    pinchGestureEnabled
+                    bounces={false}
+                    style={[styles.ImageScroller, { width }]}
+                    onScroll={Animated.event([
+                      {
+                        nativeEvent: { contentOffset: { x: this.scrollX } },
+                      },
+                    ])}
+                    scrollEventThrottle={16}>
+                    {item.media.map((source, i) => {
+                      return <Image key={i} source={source} style={{ height: width, width }} />;
+                    })}
                   </ScrollView>
+                  <View style={styles.CardFooter}>
+                    <View style={styles.LeftCardFooterComponent}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          item.likes = item.likes + 1;
+                        }}>
+                        <Iconset name="heart" color="#FF1733" size={18} />
+                      </TouchableOpacity>
+                      <Text style={styles.LeftCardFooterComponentText}>{item.likes}</Text>
+                    </View>
+                    {item.media.length > 1 ? (
+                      <View style={styles.ScrollDotContainer}>
+                        {item.media.map((source, i) => {
+                          let opacity = position.interpolate({
+                            inputRange: [i - 1, i, i + 1],
+                            outputRange: [0.3, 1, 0.3],
+                            extrapolate: 'clamp',
+                          });
+                          return <Animated.View key={i} style={[styles.ScrollDots, { opacity }]} />;
+                        })}
+                      </View>
+                    ) : null}
+                    <View style={styles.RightCardFooterComponent}>
+                      <Iconset name="forward" color="#AFAFAF" size={18} />
+                    </View>
+                  </View>
                 </Card>
               )}
               keyExtractor={item => item.key}

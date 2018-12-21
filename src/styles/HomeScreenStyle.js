@@ -66,6 +66,50 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
   },
+  CardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    margin: 10,
+  },
+  LeftCardFooterComponent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginLeft: 2,
+  },
+  LeftCardFooterComponentText: {
+    fontFamily: 'poppins-regular',
+    fontSize: 16,
+    color: '#AFAFAF',
+    marginLeft: 5,
+  },
+  ScrollDotContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    flex: 1,
+  },
+  RightCardFooterComponent: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginRight: 2,
+  },
+  ScrollDots: {
+    height: 6,
+    width: 6,
+    backgroundColor: '#595959',
+    marginLeft: 4,
+    marginRight: 4,
+    borderRadius: 5,
+    alignSelf: 'center',
+  },
 });
 
 export default styles;
