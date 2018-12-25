@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -28,7 +28,7 @@ class CouponScreen extends Component {
 
   render() {
     return (
-      <SafeAreaView style={styles.Back}>
+      <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <View style={styles.BackArea}>
@@ -56,7 +56,7 @@ class CouponScreen extends Component {
             </LinearGradient>
           </View>
         ) : null}
-      </SafeAreaView>
+      </View>
     );
   }
 }

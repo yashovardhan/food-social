@@ -40,7 +40,7 @@ class DetailsScreen extends Component {
     return (
       <View style={styles.Back}>
         {this.state.fontLoaded ? (
-          <View style={styles.Back}>
+          <View style={styles.Main}>
             <View style={styles.BackArea}>
               <Iconset
                 name="back"

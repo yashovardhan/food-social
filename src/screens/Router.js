@@ -5,7 +5,7 @@ import {
   createStackNavigator,
   createMaterialTopTabNavigator,
 } from 'react-navigation';
-import { View, Easing, Animated } from 'react-native';
+import { SafeAreaView, Easing, Animated, StatusBar } from 'react-native';
 import { Font } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -243,9 +243,10 @@ class Router extends Component {
     );
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#000000' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#000000' }}>
+        <StatusBar barStyle="light-content" />
         {this.state.fontLoaded ? <AppFlow /> : null}
-      </View>
+      </SafeAreaView>
     );
   }
 }

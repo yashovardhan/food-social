@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView,
   View,
   Text,
   Image,
@@ -167,7 +166,7 @@ class HomeScreen extends Component {
     let position = Animated.divide(this.scrollX, width);
 
     return (
-      <SafeAreaView style={styles.Back}>
+      <View style={styles.Back}>
         {this.state.fontLoaded ? (
           <View style={styles.Main}>
             <Header
@@ -257,7 +256,7 @@ class HomeScreen extends Component {
             />
           </View>
         ) : null}
-      </SafeAreaView>
+      </View>
     );
   }
 }
