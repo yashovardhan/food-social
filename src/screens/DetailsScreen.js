@@ -51,8 +51,9 @@ class DetailsScreen extends Component {
               />
             </View>
             <ScrollView
-              contentContainerStyle={{ flex: 1, backgroundColor: '#F5F5F5' }}
-              style={{ flexGrow: 15 }}>
+              contentContainerStyle={{ backgroundColor: '#F5F5F5' }}
+              style={{ flexGrow: 15 }}
+              bounces={false}>
               <View style={styles.GraphicArea}>
                 <Image source={this.state.background} resizeMode="cover" style={styles.Graphic} />
               </View>
