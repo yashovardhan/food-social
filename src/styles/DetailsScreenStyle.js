@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontFamily: 'poppins-light',
   },
   NextButton: {
-    flex: 1,
+    height: 50,
     backgroundColor: '#FF5F35',
     justifyContent: 'center',
     alignItems: 'center',
