@@ -23,6 +23,9 @@ import PointsOfferScreen from './PointsOfferScreen';
 import RedemptionScreen from './RedemptionScreen';
 import DetailsScreen from './DetailsScreen';
 import NotificationScreen from './NotificationScreen';
+import UserFeedbackScreen from './UserFeedbackScreen';
+import ProfileEditScreen from './ProfileEditScreen';
+import ChangePasswordScreen from './ChangePasswordScreen';
 
 const Iconset = createIconSetFromIcoMoon(icoMoonConfig, 'icomoon');
 
@@ -58,7 +61,6 @@ class Router extends Component {
           backgroundColor: '#FFFFFF',
           shadowColor: 'transparent',
           borderTopColor: '#FFFFFF',
-          paddingTop: 20,
         },
         indicatorStyle: {
           borderBottomColor: '#FF5F35',
@@ -162,6 +164,33 @@ class Router extends Component {
         transitionConfig,
       }
     );
+    const FeedbackFlow = createStackNavigator(
+      {
+        allfeedback: FeedbackScreen,
+        givefeedback: UserFeedbackScreen,
+      },
+      {
+        headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
+        transitionConfig,
+      }
+    );
+    const ProfileFlow = createStackNavigator(
+      {
+        profilescreen: ProfileScreen,
+        editprofile: ProfileEditScreen,
+        changepassword: ChangePasswordScreen,
+      },
+      {
+        headerMode: 'none',
+        navigationOptions: {
+          gesturesEnabled: true,
+        },
+        transitionConfig,
+      }
+    );
     const HomeFlow = createStackNavigator(
       {
         feedhome: HomeScreen,
@@ -210,16 +239,30 @@ class Router extends Component {
           },
         },
         feedback: {
-          screen: FeedbackScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="review" color={tintColor} size={24} />,
-          }),
+          screen: FeedbackFlow,
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => <Iconset name="review" color={tintColor} size={24} />,
+            };
+          },
         },
         profile: {
-          screen: ProfileScreen,
-          navigationOptions: () => ({
-            tabBarIcon: ({ tintColor }) => <Iconset name="user" color={tintColor} size={24} />,
-          }),
+          screen: ProfileFlow,
+          navigationOptions: ({ navigation }) => {
+            let tabBarVisible = true;
+            if (navigation.state.index > 0) {
+              tabBarVisible = false;
+            }
+            return {
+              tabBarVisible,
+              tabBarIcon: ({ tintColor }) => <Iconset name="user" color={tintColor} size={24} />,
+            };
+          },
         },
       },
       {
