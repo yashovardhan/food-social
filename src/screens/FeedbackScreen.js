@@ -121,7 +121,14 @@ class FeedbackScreen extends Component {
                       {item.date}, {item.time}
                     </Text>
                   </View>
-                  <Iconset name="feedback" color="#000000" size={22} style={styles.FeedbackIcon} />
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('givefeedback')}>
+                    <Iconset
+                      name="feedback"
+                      color="#000000"
+                      size={22}
+                      style={styles.FeedbackIcon}
+                    />
+                  </TouchableOpacity>
                 </Card>
               )}
               keyExtractor={item => item.key}
