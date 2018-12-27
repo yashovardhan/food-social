@@ -41,7 +41,9 @@ class ProfileScreen extends Component {
               <Image source={this.state.background} resizeMode="cover" style={styles.Graphic} />
               <Text style={styles.Name}>{this.state.name}</Text>
             </View>
-            <TouchableOpacity style={styles.EditButton}>
+            <TouchableOpacity
+              style={styles.EditButton}
+              onPress={() => this.props.navigation.navigate('editprofile')}>
               <Iconset name="pencil" color="#FFFFFF" size={22} />
             </TouchableOpacity>
             <ScrollView style={{ flexGrow: 7 }} contentContainerStyle={styles.DetailsArea}>
