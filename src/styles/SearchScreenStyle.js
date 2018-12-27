@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   Card: {
-    height: 125,
+    height: 120,
     margin: 10,
     borderRadius: 5,
     overflow: 'hidden',
   },
   CardContent: {
-    flex: 2,
+    height: 90,
     flexDirection: 'row',
     backgroundColor: '#FFFFFF',
     padding: 10,
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     marginLeft: -5,
   },
   CardButton: {
-    flex: 1,
+    height: 30,
     backgroundColor: '#FF5F35',
     justifyContent: 'center',
     alignItems: 'center',
