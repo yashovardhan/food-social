@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
     fontFamily: 'poppins-light',
   },
   NextButton: {
-    flex: 1,
     backgroundColor: '#FF5F35',
     justifyContent: 'center',
     alignItems: 'center',
+    height: 50,
   },
   NextButtonText: {
     alignSelf: 'center',
