@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Font, LinearGradient } from 'expo';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
@@ -79,7 +79,14 @@ class RedemptionScreen extends Component {
               {this.unorderedList('Lorem Ipsum is simply dummy text of the')}
               {this.unorderedList('Lorem Ipsum is simply dummy text of the')}
               {this.unorderedList('Lorem Ipsum is simply dummy text of the')}
+              {this.unorderedList('Lorem Ipsum is simply dummy text of the')}
+              {this.unorderedList('Lorem Ipsum is simply dummy text of the')}
             </View>
+            <TouchableOpacity
+              style={styles.SubmitButton}
+              onPress={() => this.props.navigation.goBack()}>
+              <Text style={styles.SubmitButtonText}>APPLY</Text>
+            </TouchableOpacity>
           </View>
         ) : null}
       </View>

@@ -85,6 +85,19 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 14,
   },
+  SubmitButton: {
+    backgroundColor: '#FF5F35',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 50,
+  },
+  SubmitButtonText: {
+    alignSelf: 'center',
+    textAlign: 'center',
+    fontFamily: 'poppins-light',
+    fontSize: 15,
+    color: '#FFFFFF',
+  },
 });
 
 export default styles;
