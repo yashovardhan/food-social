@@ -33,6 +33,7 @@
     },
     "androidStatusBar": {
       "backgroundColor": "#000000"
-    }
+    },
+    "githubUrl": "https://github.com/yashovardhanagrawal/food-social"
   }
 }
