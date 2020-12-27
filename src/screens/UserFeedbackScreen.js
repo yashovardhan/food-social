@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput } from 'react-native';
 import { Card } from 'react-native-elements';
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 

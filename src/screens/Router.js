@@ -6,7 +6,7 @@ import {
   createMaterialTopTabNavigator,
 } from 'react-navigation';
 import { SafeAreaView, Easing, Animated, StatusBar } from 'react-native';
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
 import icoMoonConfig from '../../assets/selection.json';

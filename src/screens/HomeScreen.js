@@ -9,7 +9,7 @@ import {
   Animated,
   TouchableOpacity,
 } from 'react-native';
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import { Header, Card } from 'react-native-elements';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, FlatList } from 'react-native';
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import { Header, Card } from 'react-native-elements';
 
 import styles from '../styles/NotificationScreenStyle';

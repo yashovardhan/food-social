@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, FlatList } from 'react-native';
-import { Font, LinearGradient } from 'expo';
+import { LinearGradient } from 'expo-linear-gradient';
+import * as Font from 'expo-font';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
 import icoMoonConfig from '../../assets/selection.json';

@@ -10,7 +10,8 @@ import {
   Keyboard,
   Platform,
 } from 'react-native';
-import { Font, LinearGradient } from 'expo';
+import { LinearGradient } from 'expo-linear-gradient';
+import * as Font from 'expo-font';
 import { Card, Icon } from 'react-native-elements';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 
