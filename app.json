@@ -4,7 +4,6 @@
     "description": "A Social Food Ordering App",
     "slug": "food-social",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android"
